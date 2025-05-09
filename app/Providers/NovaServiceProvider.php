@@ -17,7 +17,13 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     {
         parent::boot();
 
-        //
+        Nova::userLocale(function () {
+            return match (app()->getLocale()) {
+                'es' => 'es-ES',
+                'en' => 'en-US',
+                default => null,
+            };
+        });
     }
 
     /**
