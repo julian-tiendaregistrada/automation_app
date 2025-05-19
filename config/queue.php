@@ -72,6 +72,14 @@ return [
             'after_commit' => false,
         ],
 
+        'exports' => [
+            'driver' => 'database',
+            'table' => 'jobs',
+            'queue' => 'exports',
+            'retry_after' => 3600,
+            'after_commit' => false,
+        ],
+
     ],
 
     /*
@@ -105,7 +113,7 @@ return [
 
     'failed' => [
         'driver' => env('QUEUE_FAILED_DRIVER', 'database-uuids'),
-        'database' => env('DB_CONNECTION', 'sqlite'),
+        'database' => env('DB_CONNECTION', 'mysql'),
         'table' => 'failed_jobs',
     ],
 

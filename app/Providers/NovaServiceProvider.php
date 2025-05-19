@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Gate;
 use Laravel\Fortify\Features;
 use Laravel\Nova\Nova;
 use Laravel\Nova\NovaApplicationServiceProvider;
+use Vendor\ExportSales\ExportSales;
 
 class NovaServiceProvider extends NovaApplicationServiceProvider
 {
@@ -85,7 +86,9 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
      */
     public function tools(): array
     {
-        return [];
+        return [
+            new ExportSales,
+        ];
     }
 
     /**
