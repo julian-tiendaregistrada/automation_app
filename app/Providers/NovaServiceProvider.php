@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Gate;
 use Laravel\Fortify\Features;
 use Laravel\Nova\Nova;
 use Laravel\Nova\NovaApplicationServiceProvider;
+use Vendor\ExportSales\ExportSales;
 
 class NovaServiceProvider extends NovaApplicationServiceProvider
 {
@@ -17,7 +18,13 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
     {
         parent::boot();
 
-        //
+        Nova::userLocale(function () {
+            return match (app()->getLocale()) {
+                'es' => 'es-ES',
+                'en' => 'en-US',
+                default => null,
+            };
+        });
     }
 
     /**
@@ -79,7 +86,9 @@ class NovaServiceProvider extends NovaApplicationServiceProvider
      */
     public function tools(): array
     {
-        return [];
+        return [
+            new ExportSales,
+        ];
     }
 
     /**

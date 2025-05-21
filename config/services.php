@@ -35,4 +35,14 @@ return [
         ],
     ],
 
+    'sqlserver' => [
+        'host' => env('DB_SQLSRV_HOST'),
+        'user' => env('DB_SQLSRV_USERNAME'),
+        'password' => env('DB_SQLSRV_PASSWORD'),
+    ],
+
+    'analyzer' => [
+        'url' => env('ANALYZER_SERVICE_URL'),
+    ],
+
 ];

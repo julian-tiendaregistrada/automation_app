@@ -3,7 +3,9 @@
     "type": "module",
     "scripts": {
         "build": "vite build",
-        "dev": "vite"
+        "dev": "vite",
+        "build-export-sales": "cd nova-components/ExportSales && npm run dev",
+        "build-export-sales-prod": "cd nova-components/ExportSales && npm run prod"
     },
     "devDependencies": {
         "@tailwindcss/vite": "^4.0.0",
